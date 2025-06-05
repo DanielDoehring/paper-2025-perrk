@@ -1,0 +1,2 @@
+    Relaxation solver                                         172   2.72ms    0.8%  15.8μs    360KiB    2.4%  2.10KiB
+      Δη                                                      640   1.12ms    0.3%  1.76μs    180KiB    1.2%     288B
