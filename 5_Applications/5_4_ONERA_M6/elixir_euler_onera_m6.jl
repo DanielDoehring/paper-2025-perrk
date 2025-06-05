@@ -98,8 +98,7 @@ semi = SemidiscretizationHyperbolic(mesh, equations, initial_condition, solver,
 #tspan = (0.0, 6.049)
 #ode = semidiscretize(semi, tspan)
 
-# TODO: Host restart file somewhere!
-restart_file = "restart_t605_undamped.h5"
+restart_file = Trixi.download("https://rwth-aachen.sciebo.de/s/40rhj8g9VlhcNUC/download", joinpath(@__DIR__, "restart_t605_undamped.h5"))
 
 restart_filename = joinpath("./", restart_file)
 
