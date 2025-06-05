@@ -1,0 +1,385 @@
+With Relaxation, up to 5e-6
+
+32 Threads
+
+PERRK Multi [15, 12, 11, 10, 9, 8, 7, 5, 4, 3]
+
+Number Elements integrated with level 1: 119
+Number Elements integrated with level 2: 166
+Number Elements integrated with level 3: 198
+Number Elements integrated with level 4: 650
+Number Elements integrated with level 5: 743
+Number Elements integrated with level 6: 507
+Number Elements integrated with level 7: 452
+Number Elements integrated with level 8: 254
+Number Elements integrated with level 9: 1616
+Number Elements integrated with level 10: 74800
+
+N_RHS_Scalar = 1729855232
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Simulation running 'CompressibleEulerEquations3D' with DGSEM(polydeg=2)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ #timesteps:               6692                run time:       1.40516567e+03 s
+ Δt:             4.56689510e-10                └── GC time:    2.57882120e-01 s (0.018%)
+ sim. time:      5.00000000e-06 (100.000%)     time/DOF/rhs!:  1.86050949e-07 s
+                                               PID:            2.08440486e-07 s
+ #DOFs per field:       2146635                alloc'd memory:       3389.262 MiB
+ #elements:               79505
+
+ CL_p        :  -3.59399938e+00
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                             Trixi.jl                                       Time                    Allocations
+                                                                   ───────────────────────   ────────────────────────
+                         Tot / % measured:                              1405s /  99.9%           1.70GiB /  98.8%
+
+Section                                                    ncalls     time    %tot     avg     alloc    %tot      avg
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+main loop                                                       1    1404s  100.0%   1404s   1.59GiB   94.7%  1.59GiB
+  Paired Explicit Relaxation RK ODE integration step        6.69k    1402s   99.9%   210ms   1.48GiB   87.9%   231KiB
+    rhs_hyperbolic_parabolic!                               13.4k     926s   66.0%  69.2ms    184MiB   10.7%  14.1KiB
+      rhs_parabolic!                                        13.4k     620s   44.2%  46.3ms    131MiB    7.6%  10.0KiB
+        calculate gradient                                  13.4k     303s   21.6%  22.6ms   63.1MiB    3.7%  4.83KiB
+          surface integral                                  13.4k     101s    7.2%  7.53ms   5.72MiB    0.3%     448B
+          volume integral                                   13.4k    76.7s    5.5%  5.73ms   7.35MiB    0.4%     576B
+          interface flux                                    13.4k    69.2s    4.9%  5.17ms   6.33MiB    0.4%     496B
+          prolong2interfaces                                13.4k    28.7s    2.0%  2.15ms   4.70MiB    0.3%     368B
+          reset gradients                                   13.4k    12.2s    0.9%   911μs     0.00B    0.0%    0.00B
+          Jacobian                                          13.4k    8.87s    0.6%   663μs   15.3MiB    0.9%  1.17KiB
+          boundary flux                                     13.4k    4.02s    0.3%   300μs   19.0MiB    1.1%  1.45KiB
+          prolong2boundaries                                13.4k    2.10s    0.1%   157μs   4.70MiB    0.3%     368B
+          ~calculate gradient~                              13.4k    209ms    0.0%  15.6μs   7.34KiB    0.0%    0.56B
+          prolong2mortars                                   13.4k   7.30ms    0.0%   546ns     0.00B    0.0%    0.00B
+          mortar flux                                       13.4k   4.65ms    0.0%   347ns     0.00B    0.0%    0.00B
+        prolong2interfaces                                  13.4k     108s    7.7%  8.07ms   6.94MiB    0.4%     544B
+        calculate viscous fluxes                            13.4k    75.7s    5.4%  5.66ms   7.96MiB    0.5%     624B
+        interface flux                                      13.4k    44.7s    3.2%  3.34ms   5.72MiB    0.3%     448B
+        surface integral                                    13.4k    27.6s    2.0%  2.06ms   4.70MiB    0.3%     368B
+        volume integral                                     13.4k    26.2s    1.9%  1.96ms   6.94MiB    0.4%     544B
+        transform variables                                 13.4k    18.6s    1.3%  1.39ms   4.70MiB    0.3%     368B
+        prolong2boundaries                                  13.4k    5.53s    0.4%   413μs   6.94MiB    0.4%     544B
+        boundary flux                                       13.4k    4.21s    0.3%   315μs   19.0MiB    1.1%  1.45KiB
+        reset ∂u/∂t                                         13.4k    3.84s    0.3%   287μs     0.00B    0.0%    0.00B
+        Jacobian                                            13.4k    2.65s    0.2%   198μs   4.70MiB    0.3%     368B
+        ~rhs_parabolic!~                                    13.4k    284ms    0.0%  21.2μs   10.8KiB    0.0%    0.83B
+        prolong2mortars                                     13.4k   6.63ms    0.0%   496ns     0.00B    0.0%    0.00B
+        mortar flux                                         13.4k   4.53ms    0.0%   339ns     0.00B    0.0%    0.00B
+      rhs!                                                  13.4k     302s   21.5%  22.6ms   52.9MiB    3.1%  4.05KiB
+        volume integral                                     13.4k     137s    9.7%  10.2ms   12.0MiB    0.7%     944B
+          ~volume integral~                                 13.4k    94.7s    6.7%  7.07ms   5.72MiB    0.3%     448B
+          blending factors                                  13.4k    42.1s    3.0%  3.15ms   6.33MiB    0.4%     496B
+        interface flux                                      13.4k    95.7s    6.8%  7.15ms   6.94MiB    0.4%     544B
+        surface integral                                    13.4k    28.0s    2.0%  2.09ms   4.29MiB    0.2%     336B
+        prolong2interfaces                                  13.4k    26.3s    1.9%  1.96ms   3.68MiB    0.2%     288B
+        boundary flux                                       13.4k    5.50s    0.4%   411μs   17.2MiB    1.0%  1.31KiB
+        reset ∂u/∂t                                         13.4k    4.73s    0.3%   353μs     0.00B    0.0%    0.00B
+        Jacobian                                            13.4k    2.41s    0.2%   180μs   5.11MiB    0.3%     400B
+        prolong2boundaries                                  13.4k    2.22s    0.2%   166μs   3.68MiB    0.2%     288B
+        ~rhs!~                                              13.4k    198ms    0.0%  14.8μs   9.33KiB    0.0%    0.71B
+        prolong2mortars                                     13.4k   6.81ms    0.0%   508ns     0.00B    0.0%    0.00B
+        mortar flux                                         13.4k   5.36ms    0.0%   400ns     0.00B    0.0%    0.00B
+        source terms                                        13.4k    657μs    0.0%  49.1ns     0.00B    0.0%    0.00B
+      ~rhs_hyperbolic_parabolic!~                           13.4k    4.02s    0.3%   300μs    420KiB    0.0%    32.1B
+    rhs_hyperbolic_parabolic! (part.)                       87.0k     337s   24.0%  3.87ms   1.18GiB   70.1%  14.2KiB
+      rhs_parabolic! (part.)                                87.0k     225s   16.0%  2.59ms    856MiB   49.8%  10.1KiB
+        calculate gradient                                  87.0k     100s    7.2%  1.15ms    410MiB   23.9%  4.83KiB
+          surface integral                                  87.0k    28.4s    2.0%   326μs   37.2MiB    2.2%     448B
+          interface flux                                    87.0k    23.1s    1.6%   265μs   41.2MiB    2.4%     496B
+          boundary flux                                     87.0k    17.5s    1.2%   201μs    123MiB    7.2%  1.45KiB
+          volume integral                                   87.0k    12.1s    0.9%   139μs   47.8MiB    2.8%     576B
+          prolong2interfaces                                87.0k    8.96s    0.6%   103μs   30.5MiB    1.8%     368B
+          reset gradients                                   87.0k    4.75s    0.3%  54.6μs     0.00B    0.0%    0.00B
+          Jacobian                                          87.0k    2.86s    0.2%  32.9μs    100MiB    5.8%  1.17KiB
+          prolong2boundaries                                87.0k    2.37s    0.2%  27.2μs   30.5MiB    1.8%     368B
+          ~calculate gradient~                              87.0k    453ms    0.0%  5.21μs   7.34KiB    0.0%    0.09B
+          prolong2mortars                                   87.0k   14.7ms    0.0%   169ns     0.00B    0.0%    0.00B
+          mortar flux                                       87.0k   12.3ms    0.0%   141ns     0.00B    0.0%    0.00B
+        calculate viscous fluxes                            87.0k    30.2s    2.2%   347μs   55.8MiB    3.2%     672B
+        prolong2interfaces                                  87.0k    22.7s    1.6%   261μs   45.1MiB    2.6%     544B
+        interface flux                                      87.0k    19.3s    1.4%   222μs   37.2MiB    2.2%     448B
+        boundary flux                                       87.0k    17.8s    1.3%   205μs    123MiB    7.2%  1.45KiB
+        transform variables                                 87.0k    13.7s    1.0%   157μs   30.5MiB    1.8%     368B
+        surface integral                                    87.0k    5.87s    0.4%  67.5μs   33.2MiB    1.9%     400B
+        volume integral                                     87.0k    5.74s    0.4%  66.0μs   45.1MiB    2.6%     544B
+        prolong2boundaries                                  87.0k    4.72s    0.3%  54.3μs   45.1MiB    2.6%     544B
+        reset ∂u/∂t                                         87.0k    3.23s    0.2%  37.1μs     0.00B    0.0%    0.00B
+        Jacobian                                            87.0k    962ms    0.1%  11.1μs   30.5MiB    1.8%     368B
+        ~rhs_parabolic! (part.)~                            87.0k    590ms    0.0%  6.78μs   10.8KiB    0.0%    0.13B
+        prolong2mortars                                     87.0k   16.1ms    0.0%   185ns     0.00B    0.0%    0.00B
+        mortar flux                                         87.0k   11.5ms    0.0%   133ns     0.00B    0.0%    0.00B
+      rhs! (part.)                                          87.0k     105s    7.5%  1.21ms    349MiB   20.3%  4.11KiB
+        volume integral                                     87.0k    31.2s    2.2%   359μs   78.3MiB    4.6%     944B
+          ~volume integral~                                 87.0k    19.4s    1.4%   223μs   37.2MiB    2.2%     448B
+          blending factors                                  87.0k    11.9s    0.8%   136μs   41.2MiB    2.4%     496B
+        boundary flux                                       87.0k    26.2s    1.9%   301μs    112MiB    6.5%  1.31KiB
+        interface flux                                      87.0k    25.8s    1.8%   296μs   45.1MiB    2.6%     544B
+        prolong2interfaces                                  87.0k    7.60s    0.5%  87.4μs   25.2MiB    1.5%     304B
+        surface integral                                    87.0k    5.40s    0.4%  62.1μs   30.5MiB    1.8%     368B
+        reset ∂u/∂t                                         87.0k    4.78s    0.3%  54.9μs     0.00B    0.0%    0.00B
+        prolong2boundaries                                  87.0k    2.29s    0.2%  26.3μs   25.2MiB    1.5%     304B
+        Jacobian                                            87.0k    1.46s    0.1%  16.8μs   33.2MiB    1.9%     400B
+        ~rhs! (part.)~                                      87.0k    506ms    0.0%  5.81μs   9.33KiB    0.0%    0.11B
+        prolong2mortars                                     87.0k   18.5ms    0.0%   212ns     0.00B    0.0%    0.00B
+        mortar flux                                         87.0k   12.9ms    0.0%   149ns     0.00B    0.0%    0.00B
+        source terms                                        87.0k   3.87ms    0.0%  44.5ns     0.00B    0.0%    0.00B
+      ~rhs_hyperbolic_parabolic! (part.)~                   87.0k    6.42s    0.5%  73.8μs   1.47KiB    0.0%    0.02B
+    ~Paired Explicit Relaxation RK ODE integration step~    6.69k    78.2s    5.6%  11.7ms    110MiB    6.4%  16.8KiB
+    Integrate w ⋅ k                                         20.1k    44.0s    3.1%  2.19ms   8.58MiB    0.5%     448B
+    Relaxation solver                                       6.69k    17.2s    1.2%  2.57ms   2.96MiB    0.2%     464B
+      Δη                                                    6.69k    10.5s    0.7%  1.56ms   2.55MiB    0.1%     400B
+      ~Relaxation solver~                                   6.69k    6.70s    0.5%  1.00ms    419KiB    0.0%    64.1B
+  Step-Callbacks                                            6.69k    1.24s    0.1%   185μs    118MiB    6.8%  18.0KiB
+    calculate dt                                            1.34k    900ms    0.1%   672μs    585KiB    0.0%     448B
+    ~Step-Callbacks~                                        6.69k    241ms    0.0%  35.9μs   35.1MiB    2.0%  5.37KiB
+    analyze solution                                            1    100ms    0.0%   100ms   82.0MiB    4.8%  82.0MiB
+  ~main loop~                                                   1   19.3ms    0.0%  19.3ms   1.47KiB    0.0%  1.47KiB
+analyze solution                                                1    246ms    0.0%   246ms   90.8MiB    5.3%  90.8MiB
+calculate dt                                                    1   1.66ms    0.0%  1.66ms      448B    0.0%     448B
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+PERRK Single S=15
+
+N_RHS_Scalar = 5225863650
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Simulation running 'CompressibleEulerEquations3D' with DGSEM(polydeg=2)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ #timesteps:               4382                run time:       5.15122358e+03 s
+ Δt:             4.96762803e-10                └── GC time:    3.48506515e-01 s (0.007%)
+ sim. time:      5.00000000e-06 (100.000%)     time/DOF/rhs!:  9.88405375e-07 s
+                                               PID:            1.16792861e-06 s
+ #DOFs per field:       2146635                alloc'd memory:       3265.220 MiB
+ #elements:               79505
+
+ CL_p        :  -3.59365693e+00
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                             Trixi.jl                                       Time                    Allocations
+                                                                   ───────────────────────   ────────────────────────
+                         Tot / % measured:                              1.43h / 100.0%           0.96GiB /  97.9%
+
+Section                                                    ncalls     time    %tot     avg     alloc    %tot      avg
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+main loop                                                       1    1.43h  100.0%   1.43h    951MiB   99.1%   951MiB
+  Paired Explicit Relaxation RK ODE integration step        4.38k    1.43h  100.0%   1.17s    915MiB   95.3%   214KiB
+    rhs_parabolic!                                          65.7k    2990s   58.0%  45.5ms    642MiB   66.9%  10.0KiB
+      calculate gradient                                    65.7k    1409s   27.4%  21.4ms    310MiB   32.3%  4.83KiB
+        surface integral                                    65.7k     509s    9.9%  7.75ms   28.1MiB    2.9%     448B
+        interface flux                                      65.7k     366s    7.1%  5.56ms   31.1MiB    3.2%     496B
+        volume integral                                     65.7k     273s    5.3%  4.16ms   36.1MiB    3.8%     576B
+        prolong2interfaces                                  65.7k     129s    2.5%  1.96ms   23.1MiB    2.4%     368B
+        reset gradients                                     65.7k    55.3s    1.1%   841μs     0.00B    0.0%    0.00B
+        Jacobian                                            65.7k    43.6s    0.8%   664μs   75.2MiB    7.8%  1.17KiB
+        boundary flux                                       65.7k    22.4s    0.4%   341μs   93.3MiB    9.7%  1.45KiB
+        prolong2boundaries                                  65.7k    9.54s    0.2%   145μs   23.1MiB    2.4%     368B
+        ~calculate gradient~                                65.7k    877ms    0.0%  13.3μs   7.34KiB    0.0%    0.11B
+        prolong2mortars                                     65.7k   35.0ms    0.0%   533ns     0.00B    0.0%    0.00B
+        mortar flux                                         65.7k   27.1ms    0.0%   413ns     0.00B    0.0%    0.00B
+      prolong2interfaces                                    65.7k     521s   10.1%  7.92ms   34.1MiB    3.6%     544B
+      calculate viscous fluxes                              65.7k     413s    8.0%  6.28ms   39.1MiB    4.1%     624B
+      interface flux                                        65.7k     223s    4.3%  3.39ms   28.1MiB    2.9%     448B
+      volume integral                                       65.7k     133s    2.6%  2.02ms   34.1MiB    3.6%     544B
+      surface integral                                      65.7k     116s    2.3%  1.76ms   23.1MiB    2.4%     368B
+      transform variables                                   65.7k    86.3s    1.7%  1.31ms   23.1MiB    2.4%     368B
+      prolong2boundaries                                    65.7k    27.2s    0.5%   414μs   34.1MiB    3.6%     544B
+      reset ∂u/∂t                                           65.7k    24.4s    0.5%   372μs     0.00B    0.0%    0.00B
+      boundary flux                                         65.7k    22.2s    0.4%   338μs   93.3MiB    9.7%  1.45KiB
+      Jacobian                                              65.7k    13.9s    0.3%   211μs   23.1MiB    2.4%     368B
+      ~rhs_parabolic!~                                      65.7k    1.39s    0.0%  21.2μs   10.8KiB    0.0%    0.17B
+      prolong2mortars                                       65.7k   31.7ms    0.0%   483ns     0.00B    0.0%    0.00B
+      mortar flux                                           65.7k   19.6ms    0.0%   299ns     0.00B    0.0%    0.00B
+    rhs!                                                    65.7k    1368s   26.6%  20.8ms    260MiB   27.1%  4.05KiB
+      volume integral                                       65.7k     625s   12.1%  9.50ms   59.2MiB    6.2%     944B
+        ~volume integral~                                   65.7k     413s    8.0%  6.29ms   28.1MiB    2.9%     448B
+        blending factors                                    65.7k     212s    4.1%  3.22ms   31.1MiB    3.2%     496B
+      interface flux                                        65.7k     465s    9.0%  7.08ms   34.1MiB    3.6%     544B
+      surface integral                                      65.7k     116s    2.3%  1.76ms   21.1MiB    2.2%     336B
+      prolong2interfaces                                    65.7k    98.4s    1.9%  1.50ms   18.1MiB    1.9%     288B
+      boundary flux                                         65.7k    27.8s    0.5%   424μs   84.2MiB    8.8%  1.31KiB
+      reset ∂u/∂t                                           65.7k    17.2s    0.3%   262μs     0.00B    0.0%    0.00B
+      Jacobian                                              65.7k    13.0s    0.3%   198μs   25.1MiB    2.6%     400B
+      prolong2boundaries                                    65.7k    4.75s    0.1%  72.2μs   18.1MiB    1.9%     288B
+      ~rhs!~                                                65.7k    1.05s    0.0%  15.9μs   9.33KiB    0.0%    0.15B
+      mortar flux                                           65.7k   28.4ms    0.0%   432ns     0.00B    0.0%    0.00B
+      prolong2mortars                                       65.7k   27.0ms    0.0%   410ns     0.00B    0.0%    0.00B
+      source terms                                          65.7k   8.75ms    0.0%   133ns     0.00B    0.0%    0.00B
+    ~Paired Explicit Relaxation RK ODE integration step~    4.38k     746s   14.5%   170ms   5.62MiB    0.6%  1.31KiB
+    Integrate w ⋅ k                                         13.1k    29.1s    0.6%  2.21ms   5.62MiB    0.6%     448B
+    Relaxation solver                                       4.38k    16.1s    0.3%  3.67ms   1.94MiB    0.2%     464B
+      ~Relaxation solver~                                   4.38k    8.97s    0.2%  2.05ms    275KiB    0.0%    64.2B
+      Δη                                                    4.38k    7.09s    0.1%  1.62ms   1.67MiB    0.2%     400B
+  Step-Callbacks                                            4.38k    1.46s    0.0%   334μs   35.8MiB    3.7%  8.38KiB
+    calculate dt                                              876    1.04s    0.0%  1.18ms    383KiB    0.0%     448B
+    ~Step-Callbacks~                                        4.38k    352ms    0.0%  80.4μs   35.3MiB    3.7%  8.26KiB
+    analyze solution                                            1   76.1ms    0.0%  76.1ms    130KiB    0.0%   130KiB
+  ~main loop~                                                   1   11.3ms    0.0%  11.3ms   1.47KiB    0.0%  1.47KiB
+analyze solution                                                1    255ms    0.0%   255ms   8.93MiB    0.9%  8.93MiB
+calculate dt                                                    1   1.61ms    0.0%  1.61ms      448B    0.0%     448B
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+R-CKL43
+
+N_RHS_Scalar = 5267047240
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Simulation running 'CompressibleEulerEquations3D' with DGSEM(polydeg=2)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ #timesteps:              16562                run time:       5.43828717e+03 s
+ Δt:             1.44738765e-10                └── GC time:    3.41843510e-01 s (0.006%)
+ sim. time:      5.00000000e-06 (100.000%)     time/DOF/rhs!:  9.66754063e-07 s
+                                               PID:            1.22336742e-06 s
+ #DOFs per field:       2146635                alloc'd memory:       3275.946 MiB
+ #elements:               79505
+
+ CL_p        :  -3.59365644e+00
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+                     Trixi.jl                               Time                    Allocations
+                                                   ───────────────────────   ────────────────────────
+                 Tot / % measured:                      1.51h / 100.0%           1.00GiB /  98.5%
+
+Section                                    ncalls     time    %tot     avg     alloc    %tot      avg
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+main loop                                       1    1.51h  100.0%   1.51h   0.97GiB   99.1%  0.97GiB
+  Relaxation vdH RK integration step        16.6k    1.51h   99.9%   328ms   0.94GiB   95.4%  59.4KiB
+    rhs_parabolic!                          66.2k    2904s   53.4%  43.8ms    647MiB   64.3%  10.0KiB
+      calculate gradient                    66.2k    1392s   25.6%  21.0ms    312MiB   31.0%  4.83KiB
+        surface integral                    66.2k     506s    9.3%  7.64ms   28.3MiB    2.8%     448B
+        interface flux                      66.2k     361s    6.6%  5.45ms   31.3MiB    3.1%     496B
+        volume integral                     66.2k     275s    5.1%  4.15ms   36.4MiB    3.6%     576B
+        prolong2interfaces                  66.2k     123s    2.3%  1.86ms   23.2MiB    2.3%     368B
+        reset gradients                     66.2k    53.1s    1.0%   801μs     0.00B    0.0%    0.00B
+        Jacobian                            66.2k    40.2s    0.7%   606μs   75.8MiB    7.5%  1.17KiB
+        boundary flux                       66.2k    22.6s    0.4%   342μs   94.0MiB    9.3%  1.45KiB
+        prolong2boundaries                  66.2k    9.65s    0.2%   146μs   23.2MiB    2.3%     368B
+        ~calculate gradient~                66.2k    816ms    0.0%  12.3μs   7.34KiB    0.0%    0.11B
+        mortar flux                         66.2k   41.5ms    0.0%   627ns     0.00B    0.0%    0.00B
+        prolong2mortars                     66.2k   36.0ms    0.0%   544ns     0.00B    0.0%    0.00B
+      prolong2interfaces                    66.2k     483s    8.9%  7.29ms   34.4MiB    3.4%     544B
+      calculate viscous fluxes              66.2k     380s    7.0%  5.73ms   39.4MiB    3.9%     624B
+      interface flux                        66.2k     223s    4.1%  3.37ms   28.3MiB    2.8%     448B
+      volume integral                       66.2k     132s    2.4%  1.99ms   34.4MiB    3.4%     544B
+      surface integral                      66.2k     127s    2.3%  1.91ms   23.2MiB    2.3%     368B
+      transform variables                   66.2k    69.7s    1.3%  1.05ms   23.2MiB    2.3%     368B
+      prolong2boundaries                    66.2k    27.9s    0.5%   422μs   34.4MiB    3.4%     544B
+      reset ∂u/∂t                           66.2k    26.4s    0.5%   399μs     0.00B    0.0%    0.00B
+      boundary flux                         66.2k    22.9s    0.4%   346μs   94.0MiB    9.3%  1.45KiB
+      Jacobian                              66.2k    19.3s    0.4%   291μs   23.2MiB    2.3%     368B
+      ~rhs_parabolic!~                      66.2k    1.25s    0.0%  18.9μs   10.8KiB    0.0%    0.17B
+      prolong2mortars                       66.2k   34.3ms    0.0%   518ns     0.00B    0.0%    0.00B
+      mortar flux                           66.2k   18.3ms    0.0%   277ns     0.00B    0.0%    0.00B
+    rhs!                                    66.2k    1392s   25.6%  21.0ms    262MiB   26.0%  4.05KiB
+      volume integral                       66.2k     634s   11.7%  9.57ms   59.6MiB    5.9%     944B
+        ~volume integral~                   66.2k     413s    7.6%  6.23ms   28.3MiB    2.8%     448B
+        blending factors                    66.2k     222s    4.1%  3.35ms   31.3MiB    3.1%     496B
+      interface flux                        66.2k     466s    8.6%  7.04ms   34.4MiB    3.4%     544B
+      surface integral                      66.2k     123s    2.3%  1.86ms   21.2MiB    2.1%     336B
+      prolong2interfaces                    66.2k     101s    1.9%  1.52ms   18.2MiB    1.8%     288B
+      boundary flux                         66.2k    28.1s    0.5%   424μs   84.9MiB    8.4%  1.31KiB
+      reset ∂u/∂t                           66.2k    20.8s    0.4%   314μs     0.00B    0.0%    0.00B
+      Jacobian                              66.2k    12.9s    0.2%   194μs   25.3MiB    2.5%     400B
+      prolong2boundaries                    66.2k    4.52s    0.1%  68.2μs   18.2MiB    1.8%     288B
+      ~rhs!~                                66.2k    1.00s    0.0%  15.2μs   9.33KiB    0.0%    0.14B
+      prolong2mortars                       66.2k   35.4ms    0.0%   534ns     0.00B    0.0%    0.00B
+      mortar flux                           66.2k   24.7ms    0.0%   372ns     0.00B    0.0%    0.00B
+      source terms                          66.2k   6.01ms    0.0%  90.8ns     0.00B    0.0%    0.00B
+    ~Relaxation vdH RK integration step~    16.6k     922s   17.0%  55.7ms   16.2MiB    1.6%  1.00KiB
+    Integrate w ⋅ k                         66.2k     153s    2.8%  2.31ms   28.3MiB    2.8%     448B
+    Relaxation solver                       16.6k    62.8s    1.2%  3.79ms   7.33MiB    0.7%     464B
+      ~Relaxation solver~                   16.6k    34.1s    0.6%  2.06ms   1.01MiB    0.1%    64.0B
+      Δη                                    16.6k    28.7s    0.5%  1.73ms   6.32MiB    0.6%     400B
+  Step-Callbacks                            16.6k    2.65s    0.0%   160μs   37.2MiB    3.7%  2.30KiB
+    calculate dt                            3.31k    2.22s    0.0%   670μs   1.42MiB    0.1%     448B
+    ~Step-Callbacks~                        16.6k    357ms    0.0%  21.6μs   35.7MiB    3.5%  2.21KiB
+    analyze solution                            1   74.5ms    0.0%  74.5ms    130KiB    0.0%   130KiB
+  ~main loop~                                   1   38.1ms    0.0%  38.1ms   1.47KiB    0.0%  1.47KiB
+analyze solution                                1    254ms    0.0%   254ms   8.93MiB    0.9%  8.93MiB
+calculate dt                                    1   1.53ms    0.0%  1.53ms      448B    0.0%     448B
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+R-RK33
+
+N_RHS_Scalar = 4925573265
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ Simulation running 'CompressibleEulerEquations3D' with DGSEM(polydeg=2)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ #timesteps:              20651                run time:       4.92752274e+03 s
+ Δt:             2.19659510e-10                └── GC time:    5.05186803e-01 s (0.010%)
+ sim. time:      5.00000000e-06 (100.000%)     time/DOF/rhs!:  9.85665038e-07 s
+                                               PID:            1.18528380e-06 s
+ #DOFs per field:       2146635                alloc'd memory:       3221.827 MiB
+ #elements:               79505
+
+ CL_p        :  -3.59365651e+00
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                          Trixi.jl                                   Time                    Allocations
+                                                            ───────────────────────   ────────────────────────
+                     Tot / % measured:                           1.37h / 100.0%           0.94GiB /  98.4%
+
+Section                                             ncalls     time    %tot     avg     alloc    %tot      avg
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+main loop                                                1    1.37h  100.0%   1.37h    939MiB   99.1%   939MiB
+  Relaxation sub-diagonal RK integration step        20.7k    1.37h   99.9%   238ms    901MiB   95.1%  44.7KiB
+    rhs_parabolic!                                   62.0k    2777s   56.4%  44.8ms    605MiB   63.8%  10.0KiB
+      calculate gradient                             62.0k    1314s   26.7%  21.2ms    292MiB   30.8%  4.83KiB
+        surface integral                             62.0k     475s    9.6%  7.67ms   26.5MiB    2.8%     448B
+        interface flux                               62.0k     345s    7.0%  5.57ms   29.3MiB    3.1%     496B
+        volume integral                              62.0k     255s    5.2%  4.12ms   34.0MiB    3.6%     576B
+        prolong2interfaces                           62.0k     121s    2.5%  1.95ms   21.7MiB    2.3%     368B
+        reset gradients                              62.0k    49.5s    1.0%   799μs     0.00B    0.0%    0.00B
+        Jacobian                                     62.0k    39.0s    0.8%   629μs   70.9MiB    7.5%  1.17KiB
+        boundary flux                                62.0k    19.9s    0.4%   322μs   87.9MiB    9.3%  1.45KiB
+        prolong2boundaries                           62.0k    8.53s    0.2%   138μs   21.7MiB    2.3%     368B
+        ~calculate gradient~                         62.0k    882ms    0.0%  14.2μs   7.34KiB    0.0%    0.12B
+        prolong2mortars                              62.0k   42.2ms    0.0%   681ns     0.00B    0.0%    0.00B
+        mortar flux                                  62.0k   34.7ms    0.0%   559ns     0.00B    0.0%    0.00B
+      prolong2interfaces                             62.0k     481s    9.8%  7.76ms   32.1MiB    3.4%     544B
+      calculate viscous fluxes                       62.0k     371s    7.5%  5.99ms   36.9MiB    3.9%     624B
+      interface flux                                 62.0k     209s    4.2%  3.38ms   26.5MiB    2.8%     448B
+      surface integral                               62.0k     132s    2.7%  2.13ms   21.7MiB    2.3%     368B
+      volume integral                                62.0k     122s    2.5%  1.97ms   32.1MiB    3.4%     544B
+      transform variables                            62.0k    72.8s    1.5%  1.17ms   21.7MiB    2.3%     368B
+      prolong2boundaries                             62.0k    24.2s    0.5%   390μs   32.1MiB    3.4%     544B
+      boundary flux                                  62.0k    19.9s    0.4%   321μs   87.9MiB    9.3%  1.45KiB
+      reset ∂u/∂t                                    62.0k    16.0s    0.3%   258μs     0.00B    0.0%    0.00B
+      Jacobian                                       62.0k    13.1s    0.3%   211μs   21.7MiB    2.3%     368B
+      ~rhs_parabolic!~                               62.0k    1.30s    0.0%  21.0μs   10.8KiB    0.0%    0.18B
+      prolong2mortars                                62.0k   29.5ms    0.0%   476ns     0.00B    0.0%    0.00B
+      mortar flux                                    62.0k   22.3ms    0.0%   359ns     0.00B    0.0%    0.00B
+    rhs!                                             62.0k    1319s   26.8%  21.3ms    245MiB   25.8%  4.05KiB
+      volume integral                                62.0k     593s   12.0%  9.57ms   55.8MiB    5.9%     944B
+        ~volume integral~                            62.0k     394s    8.0%  6.36ms   26.5MiB    2.8%     448B
+        blending factors                             62.0k     199s    4.0%  3.21ms   29.3MiB    3.1%     496B
+      interface flux                                 62.0k     440s    8.9%  7.11ms   32.1MiB    3.4%     544B
+      surface integral                               62.0k     130s    2.6%  2.10ms   19.9MiB    2.1%     336B
+      prolong2interfaces                             62.0k    94.2s    1.9%  1.52ms   17.0MiB    1.8%     288B
+      boundary flux                                  62.0k    25.1s    0.5%   405μs   79.4MiB    8.4%  1.31KiB
+      reset ∂u/∂t                                    62.0k    18.5s    0.4%   299μs     0.00B    0.0%    0.00B
+      Jacobian                                       62.0k    12.8s    0.3%   206μs   23.6MiB    2.5%     400B
+      prolong2boundaries                             62.0k    4.09s    0.1%  66.0μs   17.0MiB    1.8%     288B
+      ~rhs!~                                         62.0k    1.02s    0.0%  16.5μs   9.33KiB    0.0%    0.15B
+      prolong2mortars                                62.0k   24.4ms    0.0%   394ns     0.00B    0.0%    0.00B
+      mortar flux                                    62.0k   23.1ms    0.0%   373ns     0.00B    0.0%    0.00B
+      source terms                                   62.0k   5.33ms    0.0%  86.0ns     0.00B    0.0%    0.00B
+    ~Relaxation sub-diagonal RK integration step~    20.7k     617s   12.5%  29.9ms   15.8MiB    1.7%     800B
+    Integrate w ⋅ k                                  62.0k     135s    2.7%  2.18ms   26.5MiB    2.8%     448B
+    Relaxation solver                                20.7k    75.1s    1.5%  3.64ms   9.14MiB    1.0%     464B
+      ~Relaxation solver~                            20.7k    43.0s    0.9%  2.08ms   1.26MiB    0.1%    64.0B
+      Δη                                             20.7k    32.1s    0.7%  1.55ms   7.88MiB    0.8%     400B
+  Step-Callbacks                                     20.7k    3.16s    0.1%   153μs   37.7MiB    4.0%  1.87KiB
+    calculate dt                                     4.13k    2.76s    0.1%   669μs   1.76MiB    0.2%     448B
+    ~Step-Callbacks~                                 20.7k    322ms    0.0%  15.6μs   35.8MiB    3.8%  1.77KiB
+    analyze solution                                     1   75.3ms    0.0%  75.3ms    130KiB    0.0%   130KiB
+  ~main loop~                                            1   49.5ms    0.0%  49.5ms   1.47KiB    0.0%  1.47KiB
+analyze solution                                         1    273ms    0.0%   273ms   8.93MiB    0.9%  8.93MiB
+calculate dt                                             1   3.31ms    0.0%  3.31ms      448B    0.0%     448B
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
