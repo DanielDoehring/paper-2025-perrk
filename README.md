@@ -9,7 +9,7 @@ If you use the implementations provided here, please also cite this repository a
 ```bibtex
 @misc{doehring2025PERRK_ReproRepo,
   title={Reproducibility repository for "Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration"},
-  author={Doehring, Daniel and Ranocha, Hendrik, and Torrilhon, Manuel},
+  author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
   year={2025},
   howpublished={\url{https://github.com/DanielDoehring/paper-2025-perrk}},
   doi={https://doi.org/10.5281/zenodo.15601890}
