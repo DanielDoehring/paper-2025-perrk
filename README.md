@@ -1,4 +1,7 @@
 # paper-2025-perrk
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/996624801.svg)](https://doi.org/10.5281/zenodo.15601890)
+
 Reproducibility Repository for the paper  
 _"Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration"_
 
