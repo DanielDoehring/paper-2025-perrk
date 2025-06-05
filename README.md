@@ -1,5 +1,6 @@
 # paper-2025-perrk
-Reproducibility Repository for the paper "Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration" 
+Reproducibility Repository for the paper  
+_"Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration"_
 
 ## Abstract
 
@@ -60,14 +61,14 @@ The scripts for validations and applications are located in the `3_PERRK_Methods
 To execute them provide the respective path:
 
 ```bash
-julia --project=. ./4_Validation/TODO
+julia --project=. ./4_Validation/4_1_EntropyConservation/4_1_1_WeakBlastWave_Euler_MHD/elixir_euler_weak_blast_er.jl
 ```
 
-For all cases in the `applications` directory the solution has been computed using a specific number of 
+For all cases in the `5_Applications` directory the solution has been computed using a specific number of 
 threads.
 To specify the number of threads the [`--threads` flag](https://docs.julialang.org/en/v1/manual/multi-threading/#Starting-Julia-with-multiple-threads) needs to be given, i.e., 
 ```bash
-julia --project=. --threads 24 ./5_Applications/TODO
+julia --project=. --threads 6 ./5_Applications/5_3_NACA0012_AMR/elixir_euler_NACA0012airfoil_mach08.jl
 ```
 The number of threads used for the examples are given in the `README.md` in `5_Applications`.
 
