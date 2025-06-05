@@ -78,7 +78,7 @@ The number of threads used for the examples are given in the `README.md` in `5_A
 * [Hendrik Ranocha](https://ranocha.de/home#gsc.tab=0)
 * [Manuel Torrilhon](https://www.acom.rwth-aachen.de/the-lab/team-people/name:manuel_torrilhon)
 
-Note that the Trixi authors are listed separately [here] TODO!
+Note that the Trixi authors are listed separately [here](https://github.com/DanielDoehring/paper-2025-perrk/blob/main/Trixi.jl-v0.12.2%2Bmod/AUTHORS.md)
 
 ## Disclaimer
 
