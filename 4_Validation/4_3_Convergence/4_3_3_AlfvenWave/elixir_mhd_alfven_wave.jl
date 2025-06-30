@@ -40,11 +40,7 @@ analysis_interval = 100_000
 analysis_callback = AnalysisCallback(semi, interval = analysis_interval,
                                      save_analysis = false,
                                      analysis_errors = [:l2_error, :l1_error, :linf_error],
-                                     extra_analysis_integrals = (entropy, energy_total,
-                                                                 energy_kinetic,
-                                                                 energy_internal,
-                                                                 energy_magnetic,
-                                                                 cross_helicity))
+                                     extra_analysis_integrals = (entropy, ))
 
 alive_callback = AliveCallback(analysis_interval = analysis_interval)
 
