@@ -18,7 +18,7 @@ If you use the implementations provided here, please also cite this repository a
 
 ## Abstract
 
-We present novel entropy conservative and entropy stable multirate Runge-Kutta methods based on Paired Explicit Runge-Kutta (P-ERK) with relaxation for conservation laws and related systems of partial differential equations.
+We present novel entropy conservative and entropy stable multirate Runge-Kutta methods based on Paired Explicit Runge-Kutta (P-ERK) schemes with relaxation for conservation laws and related systems of partial differential equations.
 Optimized schemes up to fourth-order of accuracy are derived and validated in terms of order of consistency, conservation of linear invariants, and entropy conservation/stability.
 
 We demonstrate the effectiveness of these P-ERRK methods when combined with a high-order, entropy-conservative/stable discontinuous Galerkin spectral element method on unstructured meshes.
