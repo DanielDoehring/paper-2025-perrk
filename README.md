@@ -53,12 +53,13 @@ git clone git@github.com:DanielDoehring/paper-2025-perrk.git
 If you do not have git installed you can obtain a `.zip` and unpack it:
 ```bash
 wget https://github.com/DanielDoehring/paper-2025-perrk/archive/refs/heads/main.zip
-unzip main.zip -d paper-2025-perrk
+unzip main.zip
+mv mv paper-2025-perrk-main/ paper-2025-perrk
 ```
 
 To instantiate the Julia environment execute the following two commands:
 ```bash
-cd paper-2025-perrk/paper-2025-perrk-main/
+cd paper-2025-perrk/
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
@@ -69,13 +70,13 @@ and *replace* the `julia` calls from this README with
 
 ### Project initialization
 
-If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk-main` directory, e.g.,
+If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk` directory, e.g.,
 ```bash
 julia --project=.
 ```
-if already inside the `paper-2025-perrk-main` directory.
+if already inside the `paper-2025-perrk` directory.
 
-If you do not execute from the `paper-2025-perrk-main` directory, you have to call `julia` with
+If you do not execute from the `paper-2025-perrk` directory, you have to call `julia` with
 ```bash
 julia --project=/YOUR/PATH/TO/paper-2025-perrk
 ```
