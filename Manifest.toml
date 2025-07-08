@@ -2380,7 +2380,6 @@ version = "0.12.2-DEV"
 
     [deps.Trixi.extensions]
     TrixiConvexECOSExt = ["Convex", "ECOS"]
-    TrixiMakieExt = "Makie"
     TrixiNLsolveExt = "NLsolve"
 
     [deps.Trixi.weakdeps]
