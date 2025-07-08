@@ -69,13 +69,13 @@ and *replace* the `julia` calls from this README with
 
 ### Project initialization
 
-If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk` directory, e.g.,
+If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk-main` directory, e.g.,
 ```bash
 julia --project=.
 ```
-if already inside the `paper-2025-perrk` directory.
+if already inside the `paper-2025-perrk-main` directory.
 
-If you do not execute from the `paper-2025-perrk` directory, you have to call `julia` with
+If you do not execute from the `paper-2025-perrk-main` directory, you have to call `julia` with
 ```bash
 julia --project=/YOUR/PATH/TO/paper-2025-perrk
 ```
