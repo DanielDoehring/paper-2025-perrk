@@ -2,8 +2,20 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/996624801.svg)](https://doi.org/10.5281/zenodo.15601890)
 
-Reproducibility Repository for the paper  
-_"Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration"_
+This repository contains information and code to reproduce the results presented in the article
+```bibtex
+@online{doehring2025Paired
+  title={Paired Explicit Relaxation Runge-Kutta Methods: Entropy-Conservative and Entropy-Stable High-Order Optimized Multirate Time Integration},
+  author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
+  year={2025},
+  eprint={2507.04991},
+  eprinttype={arxiv},
+  eprintclass={math.NA},
+  url={https://arxiv.org/abs/2507.04991},
+  journal={arXiv preprint arXiv:2507.04991},
+  doi={10.48550/arXiv.2507.04991}
+}
+```
 
 If you use the implementations provided here, please also cite this repository as
 ```bibtex
