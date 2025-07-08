@@ -2,8 +2,20 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/996624801.svg)](https://doi.org/10.5281/zenodo.15601890)
 
-Reproducibility Repository for the paper  
-_"Paired Explicit Relaxation Runge-Kutta Methods: Entropy Conservative/Stable High-Order Optimized Multirate Time Integration"_
+This repository contains information and code to reproduce the results presented in the article
+```bibtex
+@online{doehring2025Paired
+  title={Paired Explicit Relaxation Runge-Kutta Methods: Entropy-Conservative and Entropy-Stable High-Order Optimized Multirate Time Integration},
+  author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
+  year={2025},
+  eprint={2507.04991},
+  eprinttype={arxiv},
+  eprintclass={math.NA},
+  url={https://arxiv.org/abs/2507.04991},
+  journal={arXiv preprint arXiv:2507.04991},
+  doi={10.48550/arXiv.2507.04991}
+}
+```
 
 If you use the implementations provided here, please also cite this repository as
 ```bibtex
@@ -18,7 +30,7 @@ If you use the implementations provided here, please also cite this repository a
 
 ## Abstract
 
-We present novel entropy conservative and entropy stable multirate Runge-Kutta methods based on Paired Explicit Runge-Kutta (P-ERK) with relaxation for conservation laws and related systems of partial differential equations.
+We present novel entropy conservative and entropy stable multirate Runge-Kutta methods based on Paired Explicit Runge-Kutta (P-ERK) schemes with relaxation for conservation laws and related systems of partial differential equations.
 Optimized schemes up to fourth-order of accuracy are derived and validated in terms of order of consistency, conservation of linear invariants, and entropy conservation/stability.
 
 We demonstrate the effectiveness of these P-ERRK methods when combined with a high-order, entropy-conservative/stable discontinuous Galerkin spectral element method on unstructured meshes.
@@ -41,12 +53,12 @@ git clone git@github.com:DanielDoehring/paper-2025-perrk.git
 If you do not have git installed you can obtain a `.zip` and unpack it:
 ```bash
 wget https://github.com/DanielDoehring/paper-2025-perrk/archive/refs/heads/main.zip
-unzip paper-2025-perrk
+unzip main.zip -d paper-2025-perrk
 ```
 
 To instantiate the Julia environment execute the following two commands:
 ```bash
-cd paper-2025-perrk
+cd paper-2025-perrk/paper-2025-perrk-main/
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
@@ -57,13 +69,13 @@ and *replace* the `julia` calls from this README with
 
 ### Project initialization
 
-If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk` directory, e.g.,
+If you installed Trixi.jl this way, you always have to start Julia with the `--project` flag set to your `paper-2025-perrk-main` directory, e.g.,
 ```bash
 julia --project=.
 ```
-if already inside the `paper-2025-perrk` directory.
+if already inside the `paper-2025-perrk-main` directory.
 
-If you do not execute from the `paper-2025-perrk` directory, you have to call `julia` with
+If you do not execute from the `paper-2025-perrk-main` directory, you have to call `julia` with
 ```bash
 julia --project=/YOUR/PATH/TO/paper-2025-perrk
 ```
