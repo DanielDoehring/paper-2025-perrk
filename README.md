@@ -53,7 +53,7 @@ git clone git@github.com:DanielDoehring/paper-2025-perrk.git
 If you do not have git installed you can obtain a `.zip` and unpack it:
 ```bash
 wget https://github.com/DanielDoehring/paper-2025-perrk/archive/refs/heads/main.zip
-unzip paper-2025-perrk
+unzip main.zip -d paper-2025-perrk
 ```
 
 To instantiate the Julia environment execute the following two commands:
