@@ -4,16 +4,19 @@
 
 This repository contains information and code to reproduce the results presented in the article
 ```bibtex
-@online{doehring2025Paired
-  title={Paired Explicit Relaxation Runge-Kutta Methods: Entropy-Conservative and Entropy-Stable High-Order Optimized Multirate Time Integration},
+@article{doehring2026paired,
+  title={Paired Explicit Relaxation {R}unge-{K}utta Methods:
+         Entropy-Conservative and Entropy-Stable High-Order Optimized
+         Multirate Time Integration},
   author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
-  year={2025},
+  journal={Communications on Applied Mathematics and Computation},
+  year={2026},
+  month={10},
+  publisher={Springer},
+  doi={10.1007/s42967-026-00587-6},
   eprint={2507.04991},
   eprinttype={arxiv},
-  eprintclass={math.NA},
-  url={https://arxiv.org/abs/2507.04991},
-  journal={arXiv preprint arXiv:2507.04991},
-  doi={10.48550/arXiv.2507.04991}
+  eprintclass={math.NA}
 }
 ```
 
@@ -24,7 +27,7 @@ If you use the implementations provided here, please also cite this repository a
   author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
   year={2025},
   howpublished={\url{https://github.com/DanielDoehring/paper-2025-perrk}},
-  doi={https://doi.org/10.5281/zenodo.15601890}
+  doi={10.5281/zenodo.15601890}
 }
 ```
 
