@@ -4,16 +4,13 @@
 
 This repository contains information and code to reproduce the results presented in the article
 ```bibtex
-@online{doehring2025Paired
+@article{doehring2025Paired
   title={Paired Explicit Relaxation Runge-Kutta Methods: Entropy-Conservative and Entropy-Stable High-Order Optimized Multirate Time Integration},
   author={Doehring, Daniel and Ranocha, Hendrik and Torrilhon, Manuel},
-  year={2025},
-  eprint={2507.04991},
-  eprinttype={arxiv},
-  eprintclass={math.NA},
-  url={https://arxiv.org/abs/2507.04991},
-  journal={arXiv preprint arXiv:2507.04991},
-  doi={10.48550/arXiv.2507.04991}
+  year={2026},
+  url={https://link.springer.com/article/10.1007/s42967-026-00587-6},
+  journal={Communications on Applied Mathematics and Computation},
+  doi={10.1007/s42967-026-00587-6}
 }
 ```
 
