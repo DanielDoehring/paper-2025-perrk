@@ -10,7 +10,8 @@ This repository contains information and code to reproduce the results presented
   year={2026},
   url={https://link.springer.com/article/10.1007/s42967-026-00587-6},
   journal={Communications on Applied Mathematics and Computation},
-  doi={10.1007/s42967-026-00587-6}
+  doi={10.1007/s42967-026-00587-6},
+  publisher={Springer}
 }
 ```
 
